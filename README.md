@@ -32,15 +32,15 @@ Image Copier is a Java-based application designed to navigate through images, co
 
 ## How to Use :
 
---# Prerequisites :
+### Prerequisites :
 	1. Ensure you have Java 8 or higher installed. (Preferably 23)
 
---# Running the Application :
+### Running the Application :
 	1. Clone or download the repository.
 	2. Open a terminal in the project directory.
 	3. Run the file Image Copier.bat
 
---# Configuration Menu
+### Configuration Menu
 	1. Select Images Folder:
 	   - Click the "Select Images Folder" button and choose the folder containing your images.
 	2. Select Target Folder:
@@ -49,7 +49,7 @@ Image Copier is a Java-based application designed to navigate through images, co
 	   - Enter the number of images to skip initially (default is 0).
 	4. Click Start to launch the Image Copier.
 
---# Using the Image Copier
+### Using the Image Copier
 	1. Use the Right Arrow and Left Arrow keys to navigate through images.
 	2. Press the Up Arrow to copy the current image to the target folder.
 	2. Press the Down Arrow to uncopy the current image to the target folder.

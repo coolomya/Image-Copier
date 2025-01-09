@@ -1,0 +1,1 @@
+java -cp imagenavigator-1.0.1-SNAPSHOT-release.jar imagenavigator.ImageNavigatorMenu
