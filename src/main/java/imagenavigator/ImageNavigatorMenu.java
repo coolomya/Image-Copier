@@ -42,7 +42,7 @@ public class ImageNavigatorMenu {
             mainPanel.add(titleLabel, gbc);
 
             // Title
-            JLabel creatorLabel = new JLabel("by Omey Bhosale", JLabel.CENTER);
+            JLabel creatorLabel = new JLabel("by Omey Bhosale. v1.3", JLabel.CENTER);
             creatorLabel.setFont(new Font("Arial", Font.BOLD, 8));
             creatorLabel.setForeground(Color.WHITE);
             gbc.gridx = 0;
@@ -54,6 +54,8 @@ public class ImageNavigatorMenu {
             JTextField imagesFolderField = new JTextField();
             JButton imagesFolderButton = new JButton("Select Images Folder");
 			// Images folder selection
+//            imagesFolderField.setText("E:\\Photos lagn\\swisstransfer_3de32f4f-a03c-4ebf-94d0-35b8fc1a351a");
+//            imagesFolderField.setText("E:\\Photos lagn\\inputimges_test");
 			imagesFolderButton.addActionListener(e -> {
 				String folderPath = selectFolder(menuFrame, gd);
 				if (folderPath != null) {
@@ -70,6 +72,7 @@ public class ImageNavigatorMenu {
             JTextField targetFolderField = new JTextField();
             JButton targetFolderButton = new JButton("Select Target Folder");
 			// Target folder selection
+        //    targetFolderField.setText("E:\\Photos lagn\\omi\\new selected");
 			targetFolderButton.addActionListener(e -> {
 				String folderPath = selectFolder(menuFrame, gd);
 				if (folderPath != null) {
