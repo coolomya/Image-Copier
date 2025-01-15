@@ -5,7 +5,8 @@ TLDR:
 - need java installed (google on how to install java)
 
 ------------------Purpose--------------
-I recently got married. And was tasked with selecting 200 images out of 3000. and the task was tedious enough to copy each image into a new folder. So I thought "wouldn't it be great if I can just use these keyboard arrows to view and copy the image directly to a folder?". And volla, so came this repo. Enjoy
+
+I recently got married. And was tasked with selecting 200 images out of 3000. and the task was tedious enough to copy each image into a new folder. So I thought "Wouldn't it be great if I can just use these keyboard arrows to view and copy the image directly to a folder?". And Volla! so came this repo. Enjoy
 
 ----------------Image Copier-----------
 
