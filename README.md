@@ -75,7 +75,7 @@ Image Copier is a Java-based application designed to navigate through images, co
 
 ## Credits :
 
-- Developed by Omey Bhosale
+- Developed by [@Omey Bhosale](https://github.com/coolomya)
 - Contributions: Design, development, and user experience improvements.
 
 --------------------------------------------------------------------------------------------
@@ -97,3 +97,6 @@ Image Copier is a Java-based application designed to navigate through images, co
 - Allow customization of keyboard shortcuts.
 
 Feel free to report any issues or suggestions for improvement!
+
+## LICENSE
+[MIT-NonCommercial License](LICENSE)
