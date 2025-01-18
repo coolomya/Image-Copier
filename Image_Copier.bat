@@ -1,1 +1,1 @@
-java -Xms200m -cp imagenavigator-1.0.3-SNAPSHOT-release.jar imagenavigator.ImageNavigatorMenu
+java -Xms200m -cp releases/imagenavigator-1.0.4-SNAPSHOT-release.jar imagenavigator.ImageNavigatorMenu
