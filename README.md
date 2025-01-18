@@ -1,4 +1,4 @@
-# Image-Copier
+# Image-Copier v1.4
 
 TLDR:
 - run "Image Copier.bat" to start application
