@@ -20,6 +20,10 @@ public class ImageNavigatorMenu {
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+        	
+        	//if property file app.properties is not present just create one
+        	ProperyFileHandler propertiesHandler = new ProperyFileHandler();
+        	
             // Create the menu frame
             JFrame menuFrame = new JFrame("Image Navigator Menu");
             menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +52,7 @@ public class ImageNavigatorMenu {
             mainPanel.add(titleLabel, gbc);
 
             // Title
-            JLabel creatorLabel = new JLabel("by Omey Bhosale. v1.3", JLabel.CENTER);
+            JLabel creatorLabel = new JLabel("by Omey Bhosale. v1.4", JLabel.CENTER);
             creatorLabel.setFont(new Font("Arial", Font.BOLD, 8));
             creatorLabel.setForeground(Color.WHITE);
             gbc.gridx = 0;
@@ -60,12 +64,13 @@ public class ImageNavigatorMenu {
             JTextField imagesFolderField = new JTextField();
             JButton imagesFolderButton = new JButton("Select Images Folder");
 			// Images folder selection
-//            imagesFolderField.setText("E:\\Photos lagn\\swisstransfer_3de32f4f-a03c-4ebf-94d0-35b8fc1a351a");
-//            imagesFolderField.setText("E:\\Photos lagn\\inputimges_test");
+            String imgFolderPathProp = propertiesHandler.getProperty(ImageCopierConstants.IMAGES_FOLDER_PROPERTY_KEY);
+            imagesFolderField.setText(imgFolderPathProp);
 			imagesFolderButton.addActionListener(e -> {
-				String folderPath = selectFolder(menuFrame, gd);
+				String folderPath = selectFolder(imgFolderPathProp, menuFrame, gd);
 				if (folderPath != null) {
 					imagesFolderField.setText(folderPath);
+					
 				}
 			});
             gbc.gridy = 1;
@@ -79,8 +84,10 @@ public class ImageNavigatorMenu {
             JButton targetFolderButton = new JButton("Select Target Folder");
 			// Target folder selection
         //    targetFolderField.setText("E:\\Photos lagn\\omi\\new selected");
+            String targetsFolderPathProp = propertiesHandler.getProperty(ImageCopierConstants.TARGET_FOLDER_PROPERTY_KEY);
+            targetFolderField.setText(targetsFolderPathProp);
 			targetFolderButton.addActionListener(e -> {
-				String folderPath = selectFolder(menuFrame, gd);
+				String folderPath = selectFolder(targetsFolderPathProp, menuFrame, gd);
 				if (folderPath != null) {
 					targetFolderField.setText(folderPath);
 				}
@@ -109,7 +116,7 @@ public class ImageNavigatorMenu {
                 String imagesFolderPath = imagesFolderField.getText().trim();
                 String targetFolderPath = targetFolderField.getText().trim();
                 int skipCount = 0;
-
+                
                 try {
                     skipCount = Integer.parseInt(skipCountField.getText().trim());
                 } catch (NumberFormatException ex) {
@@ -122,6 +129,9 @@ public class ImageNavigatorMenu {
                     return;
                 }
 
+                propertiesHandler.putProperty(ImageCopierConstants.IMAGES_FOLDER_PROPERTY_KEY, imagesFolderPath);
+                propertiesHandler.putProperty(ImageCopierConstants.TARGET_FOLDER_PROPERTY_KEY, targetFolderPath);
+                propertiesHandler.putProperty(ImageCopierConstants.SKIP_COUNT_PROPERTY_KEY, String.valueOf(skipCount));
                 // Launch Image Navigator
                 menuFrame.dispose();
                 new ImageNavigator(imagesFolderPath, targetFolderPath, skipCount);
@@ -144,11 +154,16 @@ public class ImageNavigatorMenu {
     }
 
 	// File Chooser Helper Method
-	private static String selectFolder(JFrame menuFrame, GraphicsDevice gd) {
+	private static String selectFolder(String path, JFrame menuFrame, GraphicsDevice gd) {
 		// Temporarily exit full-screen mode
 		gd.setFullScreenWindow(null);
 
-		JFileChooser fileChooser = new JFileChooser();
+		JFileChooser fileChooser;
+		if (path == null || path.isBlank()) {
+			fileChooser = new JFileChooser();
+		} else {
+			fileChooser = new JFileChooser(path);
+		}
 		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int result = fileChooser.showOpenDialog(menuFrame);
 
