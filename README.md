@@ -20,6 +20,7 @@ Image Copier is a Java-based application designed to navigate through images, co
 2. Menu for Configuration:
    - Select the folder containing images.
    - Choose the target folder for copied images.
+   - - most recently opened image path will be saved for next use
    - Specify the number of images to skip at the start.
 3. Keyboard Shortcuts:
    - Right Arrow: View the next image.
